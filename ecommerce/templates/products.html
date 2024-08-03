@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>product</title>
+{% endblock %}
+{% block content %}
+
+    <div class="row">
+        <img src="{{product.image.url}}" style="height:380px;width:100%">
+    </div>
+<center><h3 STYLE="background-color:white">{{product.p_name}}</h3></center>
+    <div class="row">
+        <h2></h2>
+    </div>
+  <div class="row">
+    {% for i in item %}
+    <div class="col-sm-3  mb-5 ">
+      <div class="card mx-auto" style="width: 19rem;">
+        <a href="#">
+        <img src="{{i.image.url}}" class="card-img-top" height="200px" width="100%" alt="..."></a>
+        <div class="card-body">
+        <h5 class="card-title text-center" >{{i.name}}</h5>
+        <h5 class="card-title text-center" >{{i.price}}</h5>
+        <a type="submit" href="{% url 'shop:product_details' i.id %}" class="btn btn-dark">Details</a>
+</div>
+      </div></div>
+      {% endfor %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>Category</title>
+{% endblock %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+<div class="container" >
+    <div class="banner">
+        <img src="{% static 'image/ban.jpg' %}" alt="Image 1" height="500px" width="100%">
+        </div>
+    </div>
+    <center><h1 style="border ">Our Collections</h1></center>
+    <div class="container">
+        <div class="row">
+            {% for m in item %}
+                <div class="col-sm-4">
+                    <div class="card">
+                        <img src="{{m.image.url}}" alt="..." height="200px" width="100%">
+                        <h5 class="card-title">{{m.p_name}}</h5>
+                        <p class="card-text" >{{m.desc}}</p>
+                        <a type="submit" href="{% url 'shop:products' m.id %}" class="btn btn-dark">check</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <h6 style="text-align: justify;font-size:bold;">
+        Discover our latest collection curated just for you! Whether you're searching for timeless classics or bold,
+        trend-setting pieces, our shopping app offers a diverse range of styles to suit every occasion. From chic everyday essentials to statement-making accessories,<br> explore our carefully selected assortment designed to elevate your wardrobe effortlessly.
+        Embrace fashion-forward designs crafted with quality and passion, ensuring each piece embodies style and sophistication. Dive into our collection today and redefine your fashion journey with us!
+    </h6>
+</div>
+
+{% endblock %}
+
+</body>
+</html>
